@@ -1,5 +1,5 @@
 class CheckoutSolution:
-
+    allowed_skus: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     @staticmethod
     def calculate_price(num_sku: int, discounts: list[tuple], unit_price: int) -> int:
         # discounts: [(discount_group_size, discount_group_price), ...]
@@ -11,7 +11,6 @@ class CheckoutSolution:
         return cost
 
     def __init__(self):
-        allowed_skus: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         self.prices = {
             'A': lambda x: self.calculate_price(x, [(5, 200), (3, 130)], 50),
             'B': lambda x: self.calculate_price(x, [(2, 45)], 30),
@@ -132,6 +131,7 @@ class CheckoutSolution:
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
+
 
 
 
