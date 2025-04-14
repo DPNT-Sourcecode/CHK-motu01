@@ -1,14 +1,54 @@
 class CheckoutSolution:
-    ALLOWED_SKUS: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50, 'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90, 'Y': 10, 'Z': 50 }
+
+    @staticmethod
+    def calculate_price(num_sku: int, discounts: list[tuple], unit_price: int) -> int:
+        # discounts: [(discount_group_size, discount_group_price), ...]
+        cost = 0
+        for discount in discounts:
+            discount_groups, num_sku = divmod(num_sku, discount[0])
+            cost += discount_groups * discount[1]
+        cost += num_sku * unit_price
+        return cost
+
+    def __init__(self):
+        allowed_skus: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        self.prices = {
+            'A': lambda x: self.calculate_price(x, [(5, 200), (3, 130)], 50),
+            'B': lambda x: self.calculate_price(x, [(2, 45)], 30),
+            'C': lambda x: self.calculate_price(x, [], 20),
+            'D': lambda x: self.calculate_price(x, [], 15),
+            'E': lambda x: self.calculate_price(x, [], 40),
+            'F': lambda x: self.calculate_price(x, [(2, 20)], 10),
+            'G': lambda x: self.calculate_price(x, [], 20),
+            'H': lambda x: self.calculate_price(x, [(10, 80), (5, 45)], 10),
+            'I': lambda x: self.calculate_price(x, [], 35),
+            'J': lambda x: self.calculate_price(x, [], 60),
+            'K': lambda x: self.calculate_price(x, [(2, 150)], 80),
+            'L': lambda x: self.calculate_price(x, [], 90),
+            'M': lambda x: self.calculate_price(x, [], 15),
+            'N': lambda x: self.calculate_price(x, [], 40),
+            'O': lambda x: self.calculate_price(x, [], 10),
+            'P': lambda x: self.calculate_price(x, [(5, 200)], 50),
+            'Q': lambda x: self.calculate_price(x, [(3, 80)], 30),
+            'R': lambda x: self.calculate_price(x, [], 50),
+            'S': lambda x: self.calculate_price(x, [], 30),
+            'T': lambda x: self.calculate_price(x, [], 20),
+            'U': lambda x: self.calculate_price(x, [(3, 80)], 40),
+            'V': lambda x: self.calculate_price(x, [(3, 130), (2, 90)], 50),
+            'W': lambda x: self.calculate_price(x, [], 20),
+            'X': lambda x: self.calculate_price(x, [], 90),
+            'Y': lambda x: self.calculate_price(x, [], 10),
+            'Z': lambda x: self.calculate_price(x, [], 50),
+        }
+
     def checkout(self, skus: str) -> int:
         # Return -1 for error if no string or if it contains anything that isn't in ALLOWED_SKUS
         
-        if not set(skus) <= set(self.ALLOWED_SKUS):
+        if not set(skus) <= set(self.allowed_skus):
             return -1
 
         # Count number of each letter
-        sku_counts = {sku: skus.count(sku) for sku in set(self.ALLOWED_SKUS)}
+        sku_counts = {sku: skus.count(sku) for sku in set(self.allowed_skus)}
 
         # Apply freebie count reductions
         #2E get one B free
@@ -92,44 +132,9 @@ class CheckoutSolution:
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
 
-def calculate_price(num_sku: int, discounts: list[tuple], unit_price: int) -> int:
-    # discounts: [(discount_group_size, discount_group_price), ...]
-    cost = 0
-    for discount in discounts:
-        discount_groups, num_sku = divmod(num_sku, discount[0])
-        cost += discount_groups * discount[1]
-    cost += num_sku * unit_price
-    return cost
 
 
 
-prices = {
-'A': lambda x: calculate_price(x, [[(5, 200), (3,130)]], 50),
-'B': lambda x: calculate_price(x, [], 30),
-'C': lambda x: calculate_price(x, [], 20),
-'D': lambda x: calculate_price(x, [], 15),
-'E': lambda x: calculate_price(x, [], 40),
-'F': lambda x: calculate_price(x, [], 10),
-'G': lambda x: calculate_price(x, [], 20),
-'H': lambda x: calculate_price(x, [], 10),
-'I': lambda x: calculate_price(x, [], 35),
-'J': lambda x: calculate_price(x, [], 60),
-'K': lambda x: calculate_price(x, [], 80),
-'L': lambda x: calculate_price(x, [], 90),
-'M': lambda x: calculate_price(x, [], 15),
-'N': lambda x: calculate_price(x, [], 40),
-'O': lambda x: calculate_price(x, [], 10),
-'P': lambda x: calculate_price(x, [], 50),
-'Q': lambda x: calculate_price(x, [], 30),
-'R': lambda x: calculate_price(x, [], 50),
-'S': lambda x: calculate_price(x, [], 30),
-'T': lambda x: calculate_price(x, [], 20),
-'U': lambda x: calculate_price(x, [], 40),
-'V': lambda x: calculate_price(x, [], 50),
-'W': lambda x: calculate_price(x, [], 20),
-'X': lambda x: calculate_price(x, [], 90),
-'Y': lambda x: calculate_price(x, [], 10),
-'Z': lambda x: calculate_price(x, [], 50),
-}
+
 
 
