@@ -1,10 +1,10 @@
-
 class CheckoutSolution:
-    # skus = unicode string
+    ALLOWED_SKUS: str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50, 'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90, 'Y': 10, 'Z': 50 }
     def checkout(self, skus: str) -> int:
         # Return -1 for error if no string or if it contains anything that isn't ABCD
-        ALLOWED_SKUS: str = "ABCDEF"
-        if not set(skus) <= set(ALLOWED_SKUS):
+        
+        if not set(skus) <= set(self.ALLOWED_SKUS):
             return -1
 
         # Count number of each letter
@@ -40,7 +40,32 @@ class CheckoutSolution:
         return charge_a + charge_b + charge_c + charge_d + charge_e + charge_f + charge_a_discount_3 + charge_a_discount_5 + charge_b_discount + charge_f_discount
 
 
-prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90, 'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50, 'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90, 'Y': 10, 'Z': 50 }
+{'A': 50
+ 'B': 30
+ 'C': 20
+ 'D': 15
+ 'E': 40
+ 'F': 10
+ 'G': 20
+ 'H': 10
+ 'I': 35
+ 'J': 60
+ 'K': 80
+ 'L': 90
+ 'M': 15
+ 'N': 40
+ 'O': 10
+ 'P': 50
+ 'Q': 30
+ 'R': 50
+ 'S': 30
+ 'T': 20
+ 'U': 40
+ 'V': 50
+ 'W': 20
+ 'X': 90
+ 'Y': 10
+ 'Z': 50
 
 
 # +------+-------+------------------------+
@@ -73,3 +98,4 @@ prices = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 'G': 20, 'H': 10
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
+
