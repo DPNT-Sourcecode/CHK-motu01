@@ -92,6 +92,15 @@ class CheckoutSolution:
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
 
+def calculate_price(num_sku: int, discounts: list[tuple], unit_price: int) -> int:
+    # discounts: [(discount_group_size, discount_group_price), ...]
+    cost = 0
+    for discount in discounts:
+        discount_groups, num_sku = divmod(num_sku, discount[0])
+        cost += discount_groups * discount[1]
+    cost += num_sku * unit_price
+    return cost
+
 
 
 prices = {
@@ -122,3 +131,4 @@ prices = {
 'Y': lambda x: x * 10,
 'Z': lambda x: x * 50,
 }
+
