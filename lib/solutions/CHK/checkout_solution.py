@@ -4,7 +4,7 @@ class CheckoutSolution:
     def checkout(self, skus: str) -> int:
         # Return -1 for error if no string or if it contains anything that isn't ABCD
         ALLOWED_SKUS: str = "ABCD"
-        if not skus or not set(skus) <= set(ALLOWED_SKUS):
+        if not set(skus) <= set(ALLOWED_SKUS):
             return -1
 
         # Count number of each letter
@@ -36,7 +36,3 @@ class CheckoutSolution:
 # | C    | 20    |                |
 # | D    | 15    |                |
 # +------+-------+----------------+
-
-
-
-
