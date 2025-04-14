@@ -14,7 +14,8 @@ class CheckoutSolution:
         num_d = skus.count("D")
 
         # Check for discounts
-        num_a_discount, num_a = divmod(num_a, 3)
+        num_a_discount_5, num_a = divmod(num_a, 5)
+        num_a_discount_3, num_a = divmod(num_a, 3)
         num_b_discount, num_b = divmod(num_b, 2)
 
         # Add stuff up
@@ -28,11 +29,12 @@ class CheckoutSolution:
         # Return charge
         return charge_a + charge_b + charge_c + charge_d + charge_a_discount + charge_b_discount
 
-# +------+-------+----------------+
-# | Item | Price | Special offers |
-# +------+-------+----------------+
-# | A    | 50    | 3A for 130     |
-# | B    | 30    | 2B for 45      |
-# | C    | 20    |                |
-# | D    | 15    |                |
-# +------+-------+----------------+
+# +------+-------+------------------------+
+# | Item | Price | Special offers         |
+# +------+-------+------------------------+
+# | A    | 50    | 3A for 130, 5A for 200 |
+# | B    | 30    | 2B for 45              |
+# | C    | 20    |                        |
+# | D    | 15    |                        |
+# | E    | 40    | 2E get one B free      |
+# +------+-------+------------------------+
