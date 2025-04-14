@@ -7,6 +7,8 @@ class CheckoutSolution:
         if not set(skus) <= set(self.ALLOWED_SKUS):
             return -1
 
+        {sku: skus.count(sku) for sku in set(self.ALLOWED_SKUS)}
+
         # Count number of each letter
         num_a = skus.count("A")
         num_b = skus.count("B")
@@ -98,4 +100,3 @@ class CheckoutSolution:
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
-
