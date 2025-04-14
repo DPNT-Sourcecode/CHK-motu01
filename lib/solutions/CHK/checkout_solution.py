@@ -92,3 +92,35 @@ class CheckoutSolution:
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
 
+
+
+prices = {
+'A': lambda x: x * 50,
+'B': lambda x: x * 30,
+'C': lambda x: x * 20,
+'D': lambda x: x * 15,
+'E': lambda x: x * 40,
+'F': lambda x: x * 10,
+'G': lambda x: x * 20,
+'H': lambda x: x * 10,
+'I': lambda x: x * 35,
+'J': lambda x: x * 60,
+'K': lambda x: x * 80,
+'L': lambda x: x * 90,
+'M': lambda x: x * 15,
+'N': lambda x: x * 40,
+'O': lambda x: x * 10,
+'P': lambda x: x * 50,
+'Q': lambda x: x * 30,
+'R': lambda x: x * 50,
+'S': lambda x: x * 30,
+'T': lambda x: x * 20,
+'U': lambda x: x * 40,
+'V': lambda x: x * 50,
+'W': lambda x: x * 20,
+'X': lambda x: x * 90,
+'Y': lambda x: x * 10,
+'Z': lambda x: x * 50,
+}
+
+
