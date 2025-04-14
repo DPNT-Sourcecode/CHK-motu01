@@ -22,7 +22,7 @@ class CheckoutSolution:
         num_a_discount_5, num_a = divmod(num_a, 5)
         num_a_discount_3, num_a = divmod(num_a, 3)
         num_b_discount, num_b = divmod(num_b, 2)
-        num_f_discount, num_f = divmod(num_f, 2)
+        num_f_discount, num_f = divmod(num_f, 3)
 
         # Add stuff up
         charge_a = num_a * 50
