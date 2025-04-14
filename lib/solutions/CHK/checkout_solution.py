@@ -122,5 +122,3 @@ prices = {
 'Y': lambda x: x * 10,
 'Z': lambda x: x * 50,
 }
-
-
