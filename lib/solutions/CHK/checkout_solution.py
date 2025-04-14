@@ -3,7 +3,7 @@ class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus: str) -> int:
         # Return -1 for error if no string or if it contains anything that isn't ABCD
-        ALLOWED_SKUS: str = "ABCDE"
+        ALLOWED_SKUS: str = "ABCDEF"
         if not set(skus) <= set(ALLOWED_SKUS):
             return -1
 
@@ -13,6 +13,7 @@ class CheckoutSolution:
         num_c = skus.count("C")
         num_d = skus.count("D")
         num_e = skus.count("E")
+        num_f = skus.count("F")
 
         # Apply the E discount on number of B to a minimum B of 0
         num_b = max(num_b - num_e // 2, 0)
@@ -21,6 +22,7 @@ class CheckoutSolution:
         num_a_discount_5, num_a = divmod(num_a, 5)
         num_a_discount_3, num_a = divmod(num_a, 3)
         num_b_discount, num_b = divmod(num_b, 2)
+        num_f_discount, num_f = divmod(num_f, 2)
 
         # Add stuff up
         charge_a = num_a * 50
@@ -28,12 +30,14 @@ class CheckoutSolution:
         charge_c = num_c * 20
         charge_d = num_d * 15
         charge_e = num_e * 40
+        charge_f = num_f * 10
         charge_a_discount_5 = num_a_discount_5 * 200
         charge_a_discount_3 = num_a_discount_3 * 130
         charge_b_discount = num_b_discount * 45
+        charge_f_discount = num_f_discount * 20
 
         # Return charge
-        return charge_a + charge_b + charge_c + charge_d + charge_e + charge_a_discount_3 + charge_a_discount_5 + charge_b_discount
+        return charge_a + charge_b + charge_c + charge_d + charge_e + charge_f + charge_a_discount_3 + charge_a_discount_5 + charge_b_discount + charge_f_discount
 
 # +------+-------+------------------------+
 # | Item | Price | Special offers         |
@@ -43,4 +47,5 @@ class CheckoutSolution:
 # | C    | 20    |                        |
 # | D    | 15    |                        |
 # | E    | 40    | 2E get one B free      |
+# | F    | 10    | 2F get one F free      |
 # +------+-------+------------------------+
