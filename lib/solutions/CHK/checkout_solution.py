@@ -59,7 +59,7 @@ class CheckoutSolution:
         sku_counts['Q'] = max(sku_counts['Q'] - sku_counts['R'] // 2, 0)
 
         # Calculate price for each SKU
-        {sku: self.prices[sku](count) for sku, sku_counts in sku_counts}
+        {sku: self.prices[sku](sku_count) for sku, sku_count in sku_counts}
 
 
 
@@ -132,6 +132,7 @@ class CheckoutSolution:
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
+
 
 
 
