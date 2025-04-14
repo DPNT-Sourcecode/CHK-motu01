@@ -17,7 +17,7 @@ class CheckoutSolution:
             'C': lambda x: self.calculate_price(x, [], 20),
             'D': lambda x: self.calculate_price(x, [], 15),
             'E': lambda x: self.calculate_price(x, [], 40),
-            'F': lambda x: self.calculate_price(x, [(2, 20)], 10),
+            'F': lambda x: self.calculate_price(x, [(2, 10)], 10),
             'G': lambda x: self.calculate_price(x, [], 20),
             'H': lambda x: self.calculate_price(x, [(10, 80), (5, 45)], 10),
             'I': lambda x: self.calculate_price(x, [], 35),
@@ -97,6 +97,7 @@ class CheckoutSolution:
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
+
 
 
 
