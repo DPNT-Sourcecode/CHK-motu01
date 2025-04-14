@@ -19,7 +19,7 @@ class CheckoutSolution:
         sku_counts['Q'] = max(sku_counts['Q'] - sku_counts['R'] // 2, 0)
 
         # Calculate price for each SKU
-        
+
 
 
         # Total it all
@@ -91,3 +91,4 @@ class CheckoutSolution:
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
+
