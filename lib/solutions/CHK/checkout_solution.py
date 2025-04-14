@@ -55,7 +55,7 @@ class CheckoutSolution:
         #3N get one M free
         sku_counts['M'] = max(sku_counts['M'] - sku_counts['N'] // 3, 0)
         #3R get one Q free
-        sku_counts['Q'] = max(sku_counts['Q'] - sku_counts['R'] // 2, 0)
+        sku_counts['Q'] = max(sku_counts['Q'] - sku_counts['R'] // 3, 0)
 
         # Calculate price for each SKU
         sku_costs = {sku: self.prices[sku](sku_count) for sku, sku_count in sku_counts.items()}
@@ -97,6 +97,7 @@ class CheckoutSolution:
 # | Y    | 10    |                        |
 # | Z    | 50    |                        |
 # +------+-------+------------------------+
+
 
 
 
