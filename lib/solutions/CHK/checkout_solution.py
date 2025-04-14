@@ -15,7 +15,7 @@ class CheckoutSolution:
         num_e = skus.count("E")
 
         # Apply the E discount on number of B to a minimum B of 0
-        num_b -= max(num_e // 2, 0)
+        num_b = max(num_b - num_e // 2, 0)
 
         # Check for discounts
         num_a_discount_5, num_a = divmod(num_a, 5)
@@ -44,5 +44,3 @@ class CheckoutSolution:
 # | D    | 15    |                        |
 # | E    | 40    | 2E get one B free      |
 # +------+-------+------------------------+
-
-
